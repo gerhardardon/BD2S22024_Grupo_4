@@ -42,10 +42,10 @@ Y conectarse al contenedor con
 `psql -h localhost -p 5432 -U admin -d postgres`
 Les pedira introducir la contraseña (root1234)
 
-La database a utilizar se llamara practica 1, para ver todas las dbs disponibles
+La database a utilizar se llamara bd2_2s24, para ver todas las dbs disponibles
 `\l`
 Para conectarse
-`\c practica1`
+`\c bd2_2s24`
 Para salir de psql
 `\q`
 
@@ -55,5 +55,3 @@ Si al hacer docker ps no aparece el conetendor, verificar si está detenido con
 Si está alli, levantar el contenedor nuevamente con 
 `docker start postgres`
 
-NOTA: SI POR ALGUNA RAZON NO TIENEN LA IMAGEN O LES TOCA CREAR OTRA NO HACERLE PUSH AL REPO PORQUE BORRARAN LOS DATOS (VOLUMENES)
-AVISAR EN EL GRUPO
