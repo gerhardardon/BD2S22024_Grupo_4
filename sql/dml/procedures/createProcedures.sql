@@ -11,6 +11,16 @@ CREATE PROCEDURE PR1(
 LANGUAGE plpgsql
 AS $$
 BEGIN
+    -- Verificar si el campo firstname tiene solo letras
+    IF NOT Firstname ~ '^[a-zA-Z]+$' THEN
+        RAISE EXCEPTION 'El campo letras debe contener solo letras';
+    END IF;
+
+    -- Verificar si el campo lastname tiene solo letras
+    IF NOT Lastname ~ '^[a-zA-Z]+$' THEN
+        RAISE EXCEPTION 'El campo letras debe contener solo letras';
+    END IF;
+
     -- Verificar si el email ya existe en la tabla Persona
     IF EXISTS(SELECT 1 FROM Persona WHERE Persona.email = Email2) THEN
         RAISE EXCEPTION 'El email ya está en uso';
@@ -68,3 +78,51 @@ END;
 $$;
 
 -- PR4 
+
+-- PR5 Creacion de cursos
+CREATE PROCEDURE PR5(codeCourse INT, courseName VARCHAR(50), courseCredits INT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- Verificar si el campo courseName tiene solo letras
+    IF NOT courseName ~ '^[A-Za-z\s]+$' THEN
+        RAISE EXCEPTION 'El campo courseName debe contener solo letras';
+    END IF;
+
+    -- verificar si el campo courseCredits tiene solo numeros
+    IF NOT courseCredits::TEXT ~ '^[0-9]+$' THEN
+        RAISE EXCEPTION 'El campo courseCredits debe contener solo numeros';
+    END IF;
+
+    -- Verificar si el campo codeCourse tiene solo numeros
+    IF NOT codeCourse::TEXT ~ '^[0-9]+$' THEN
+        RAISE EXCEPTION 'El campo codeCourse debe contener solo numeros';
+    END IF;
+
+    -- Verificar si el curso ya existe
+    IF EXISTS(SELECT 1 FROM Curso WHERE Curso.code = codeCourse) THEN
+        RAISE EXCEPTION 'El curso ya existe';
+    END IF;
+
+
+    -- Crear curso
+    INSERT INTO Curso(code, name, maxStudents, credits) VALUES (codeCourse, courseName, 110, courseCredits);
+END;
+$$;
+
+-- PR6 Validar campos
+CREATE PROCEDURE PR6(letras VARCHAR(50), numeros INT)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- Verificar si el campo letras tiene solo letras
+    IF NOT letras ~ '^[A-Za-z\s]+$' THEN
+        RAISE EXCEPTION 'El campo letras debe contener solo letras';
+    END IF;
+
+    -- Verificar si el campo numeros tiene solo numeros
+    IF NOT numeros::TEXT ~ '^[0-9]+$' THEN
+        RAISE EXCEPTION 'El campo numeros debe contener solo numeros';
+    END IF;
+END;
+$$;
