@@ -69,4 +69,5 @@ Para ejecutar el script de creacion de tablas en sql/ddl/createTAbles.sql
 Luego confirmar con
 `\dt`
 La salida deberia ser parecida a esto
+
 ![](./assets/tableList.png)
