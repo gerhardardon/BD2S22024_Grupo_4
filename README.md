@@ -55,3 +55,18 @@ Si al hacer docker ps no aparece el conetendor, verificar si está detenido con
 Si está alli, levantar el contenedor nuevamente con 
 `docker start postgres`
 
+## Ejecutar el script de crceacion de tablas 
+Conectarse al contenedor con 
+`psql -h localhost -p 5432 -U admin -d postgres`
+Les pedira introducir la contraseña (root1234)
+
+La database a utilizar se llamara bd2_2s24, para ver todas las dbs disponibles
+`\l`
+Para conectarse
+`\c bd2_2s24`
+Para ejecutar el script de creacion de tablas en sql/ddl/createTAbles.sql
+`\i [ABSOLUTE PATH AL SCRIPT]`
+Luego confirmar con
+`\dt`
+La salida deberia ser parecida a esto
+![](./assets/tableList.png)
