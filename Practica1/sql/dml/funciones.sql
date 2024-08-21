@@ -7,13 +7,14 @@ CREATE OR REPLACE FUNCTION Func_course_usuarios(p_codeCourse INT) RETURNS TABLE 
 ) AS $$
 BEGIN
     RETURN QUERY
-    SELECT u.id, CONCAT(p.fName, ' ', p.lName) AS student_name
+    SELECT u.id, CONCAT(p.fName, ' ', p.lName)::VARCHAR(100) AS student_name
     FROM Asignacion a
     JOIN Usuario u ON a.idStudent = u.id
     JOIN Persona p ON u.cui = p.cui
     WHERE a.codeCourse = p_codeCourse;
 END;
 $$ LANGUAGE plpgsql;
+
 
 SELECT * FROM Func_course_usuarios(101);
 
@@ -70,7 +71,6 @@ SELECT * FROM Func_notification_usuarios(1);
 
 -- Func_usuario
 
-
 CREATE OR REPLACE FUNCTION Func_usuarios() 
 RETURNS TABLE (
     firstname VARCHAR(50),
@@ -100,14 +100,19 @@ $$ LANGUAGE plpgsql;
 
 SELECT * FROM Func_usuarios();
 
+-- Funcion historial
+
 CREATE OR REPLACE FUNCTION Func_logger() RETURNS TABLE (
     Fecha DATE,
     Descripcion VARCHAR(700),
     accion VARCHAR(50)
 ) AS $$
 BEGIN
-    RETURN QUERY SELECT h.Fecha, h.Descripcion, h.accion FROM Historial h;
+    RETURN QUERY 
+    SELECT h.Fecha::DATE, h.Descripcion, h.accion 
+    FROM Historial h;
 END;
 $$ LANGUAGE plpgsql;
+
 
 SELECT * FROM Func_logger();
