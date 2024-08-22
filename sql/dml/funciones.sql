@@ -99,3 +99,15 @@ END;
 $$ LANGUAGE plpgsql;
 
 SELECT * FROM Func_usuarios();
+
+CREATE OR REPLACE FUNCTION Func_logger() RETURNS TABLE (
+    Fecha DATE,
+    Descripcion VARCHAR(700),
+    accion VARCHAR(50)
+) AS $$
+BEGIN
+    RETURN QUERY SELECT h.Fecha, h.Descripcion, h.accion FROM Historial h;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM Func_logger();
