@@ -97,3 +97,46 @@ Se crea un backup incremental
 
 Se simula una falla controlada en la db eliminando el archivo `src/pg1-path/global/pg_control`
 Se restaura la db creando una imagen temporal de postgres 
+
+## Dia3 
+Se realizaron inserts masivos con el script `sql/dml/dia3.sql` y se imprime el count de las tablas para verificar que si se agregaron 
+
+![](./assets/[dia3]selects.png)
+
+Se crea un backup incremental 
+![](./assets/[dia3]backups.png)
+![](./assets/[dia3]backupinfo.png)
+
+Se simula una falla controlada en la db eliminando el archivo `src/pg1-path/global/pg_control`
+Se restaura la db creando una imagen temporal de postgres 
+
+## Dia4
+Se realizaron inserts masivos con el script `sql/dml/dia4.sql` y se imprime el count de las tablas para verificar que si se agregaron 
+
+![](./assets/[dia4]selects.png)
+
+Se crea un backup incremental 
+![](./assets/[dia4]incremental.png)
+
+Se crea un backup diferencial 
+![](./assets/[dia4]diferencial.png)
+
+Se crea un backup completo 
+![](./assets/[dia4]full.png)
+
+Se crea un segundo backup diferencial 
+![](./assets/[dia4]diferencial2.png)
+
+Se crea un segundo backup incremental 
+![](./assets/[dia4]incremental2.png)
+
+Y se verifican todos los backups 
+![](./assets/[dia4]backups.png)
+
+
+Se simula una falla controlada en la db eliminando el archivo `src/pg1-path/global/pg_control`
+Se restaura la db creando una imagen temporal de postgres 
+
+
+Se simula una falla controlada en la db eliminando el archivo `src/pg1-path/global/pg_control`
+Se restaura la db creando una imagen temporal de postgres 
