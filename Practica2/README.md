@@ -10,3 +10,4 @@ La carpeta `/database` es sustituida por la carpeta `/src` y los Dockerfiles son
 ## Diagrama de la base de datos
 ![](./assets/diagrama.png)
 Se debe cargar el script `/sql/ddl/createDb.sql` para crear el modelo
+ 
