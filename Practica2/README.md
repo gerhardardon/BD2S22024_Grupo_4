@@ -14,6 +14,9 @@ La carpeta `/database` es sustituida por la carpeta `/src` y los Dockerfiles son
 Se debe cargar el script `/sql/ddl/create.sql` para crear el modelo
  
 ## Pasos para crear el backup
+Se deben seguir todos los pasos que estan marcados con **negrita** para verificar si se subieron los backups al volumen 
+
+**entrar al volumen**
 `docker exec -it postgres /bin/bash`
 
 **Cambiar contraseña de usuario root por sino se sabe la contraseña**
