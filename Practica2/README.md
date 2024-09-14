@@ -14,31 +14,41 @@ La carpeta `/database` es sustituida por la carpeta `/src` y los Dockerfiles son
 Se debe cargar el script `/sql/ddl/create.sql` para crear el modelo
  
 ## Pasos para crear el backup
-docker exec -it postgres /bin/bash
+`docker exec -it postgres /bin/bash`
 
 Cambiar contraseña de usuario root por sino se sabe la contraseña
+
 `passwd`
 
 Entrar al usuario postgres
+
 `su - postgres`
 
 ejecutar pgbackrest para ver que todo bien
+
 `pgbackrest`
 
 Verificar que se haya creado la stanza
+
 `pgbackrest --stanza=bd2_2s24 --log-level-console=info check`
 
 Si no esta creada crear el stanza para realmente inicializar repositorio de backups en pgbackrest
+
 `pgbackrest --stanza=bd2_2s24 --log-level-console=info stanza-create`
 
 si se quiere hacer un backup completo se puede hacer de la siguiente manera
+
 `pgbackrest --stanza=bd2_2s24 --type=full --log-level-console=info backup`
 
 Crear un backup diferencial
+
 `pgbackrest --stanza=bd2_2s24 --type=diff --log-level-console=info backup`
 
 Crear un backup incremental
+
 `pgbackrest --stanza=bd2_2s24 --type=incr --log-level-console=info backup`
 
-Verificar que se haya creado el backup
-`pgbackrest info`
+Verificar que se haya creado el backup en el volumen
+
+`pgbackrest info` 
+
