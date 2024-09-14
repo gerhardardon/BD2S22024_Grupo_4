@@ -16,19 +16,18 @@ Se debe cargar el script `/sql/ddl/create.sql` para crear el modelo
 ## Pasos para crear el backup
 `docker exec -it postgres /bin/bash`
 
-Cambiar contraseña de usuario root por sino se sabe la contraseña
-
+**Cambiar contraseña de usuario root por sino se sabe la contraseña**
 `passwd`
 
-Entrar al usuario postgres
+**Entrar al usuario postgres**
 
 `su - postgres`
 
-ejecutar pgbackrest para ver que todo bien
+**ejecutar pgbackrest para ver que todo bien**
 
 `pgbackrest`
 
-Verificar que se haya creado la stanza
+**Verificar que se haya creado la stanza**
 
 `pgbackrest --stanza=bd2_2s24 --log-level-console=info check`
 
@@ -48,7 +47,7 @@ Crear un backup incremental
 
 `pgbackrest --stanza=bd2_2s24 --type=incr --log-level-console=info backup`
 
-Verificar que se haya creado el backup en el volumen
+**Verificar que se haya creado el backup en el volumen**
 
 `pgbackrest info` 
 
