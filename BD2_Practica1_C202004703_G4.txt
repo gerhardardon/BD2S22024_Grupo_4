@@ -1,0 +1,11 @@
+Universidad de San Carlos de Guatemala
+Facultad de Ingeniería
+Escuela de ciencias y sistemas 
+Sistemas de Base de Datos 2
+Sección B
+
+Eduardo Andrés Cuevas Tzun
+Carnet: 202004703
+
+Link de repositorio:
+https://github.com/gerhardardon/BD2S22024_Grupo_4.git
