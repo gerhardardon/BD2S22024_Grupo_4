@@ -1,4 +1,4 @@
-module proyectoFase2
+module proyecto2
 
 go 1.23.2
 
